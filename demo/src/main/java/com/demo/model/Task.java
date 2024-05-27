@@ -1,13 +1,7 @@
 package com.demo.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.sql.Date;
+import jakarta.persistence.*;
 
 @Entity
 public class Task {
@@ -16,13 +10,13 @@ public class Task {
     private long taskId;
     private String taskName;
     private String description;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date deadline;
+
+    private String deadline;
 
     public Task() {
     }
 
-    public Task(long taskId, String taskName, String description, Date deadline) {
+    public Task(long taskId, String taskName, String description, String deadline) {
         this.taskId = taskId;
         this.taskName = taskName;
         this.description = description;
@@ -53,11 +47,11 @@ public class Task {
         this.description = description;
     }
 
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 }

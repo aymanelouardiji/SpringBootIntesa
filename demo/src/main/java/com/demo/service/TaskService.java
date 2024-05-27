@@ -18,15 +18,32 @@ public class TaskService {
 
     private final TaskRepository taskRepository;
 
+    /**
+     * Constructor for TaskService.
+     *
+     * @param taskRepository The repository for accessing task data.
+     */
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
 
+    /**
+     * Retrieve all tasks.
+     *
+     * @return A list of all tasks.
+     */
     public List<Task> getAllTasks(){
         logger.info("Fetching all tasks");
         return taskRepository.findAll();
     }
 
+    /**
+     * Retrieve a task by ID.
+     *
+     * @param taskId The ID of the task to retrieve.
+     * @return The task with the specified ID.
+     * @throws ResponseStatusException If no task with the given ID is found.
+     */
     public Task getTaskById(Long taskId){
         logger.info("Fetching task with ID: {}", taskId);
         return taskRepository.findById(taskId)
@@ -36,11 +53,26 @@ public class TaskService {
                 });
 
     }
+
+    /**
+     * Save a new task.
+     *
+     * @param task The task to be saved.
+     * @return The saved task.
+     */
     public Task saveNewTask(Task task){
         logger.info("Saving new task: {}", task);
         return taskRepository.save(task);
     }
 
+    /**
+     * Update an existing task.
+     *
+     * @param taskId       The ID of the task to update.
+     * @param updatedTask The updated task object.
+     * @return The updated task.
+     * @throws ResponseStatusException If no task with the given ID is found.
+     */
     public Task updateTask(Long taskId, Task updatedTask) {
         logger.info("Updating task with ID: {}", taskId);
         return taskRepository.findById(taskId)
@@ -56,6 +88,12 @@ public class TaskService {
                     return new ResponseStatusException(HttpStatus.NOT_FOUND, "Task not found for this id: " + taskId);
                 });
     }
+
+    /**
+     * Delete a task by ID.
+     *
+     * @param taskId The ID of the task to delete.
+     */
     public void deleteTask(Long taskId){
         logger.info("Deleting task with ID: {}", taskId);
         taskRepository.deleteById(taskId);
