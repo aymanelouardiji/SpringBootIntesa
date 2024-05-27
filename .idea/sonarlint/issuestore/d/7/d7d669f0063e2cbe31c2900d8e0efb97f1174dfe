@@ -1,6 +1,2 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ßïÿÿÿÿÿ8ğÊÒÎû1J$c383182c-54f9-4e7f-b1a8-e40ae94575d7
-V
-java:S1128"4Remove this unused import 'com.demo.Model.Employee'.(²ò’ııÿÿÿÿ8ìÏğÏû1
-Z
-java:S1128"=Remove this unused import 'com.demo.Service.EmployeeService'.(—œÚ8íÏğÏû1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ßïÿÿÿÿÿ8ğÊÒÎû1J$7ffb3339-63da-44b4-bf79-f8d1c66d787e
