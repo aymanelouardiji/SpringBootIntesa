@@ -29,5 +29,21 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+# IntelliJ IDEA project files
+.idea/
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Maven build directory
+target/
+
+# Gradle build directory
+build/
+
+# Ignore local configuration files that may contain sensitive information
+application.properties
+
