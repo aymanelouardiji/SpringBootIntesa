@@ -33,7 +33,7 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public Optional <Employee> updateEmployee(Long employeeId, Employee updatedEmployee ){
+    public Optional<Employee> updateEmployee(Long employeeId, Employee updatedEmployee ){
        return employeeRepository.findById(employeeId)
        .map(existingEmployee -> {
        existingEmployee.setFirstName(updatedEmployee.getFirstName());
