@@ -98,4 +98,13 @@ public class TaskService {
         logger.info("Deleting task with ID: {}", taskId);
         taskRepository.deleteById(taskId);
     }
+
+    /**
+     * Saves a list of tasks.
+     *
+     * @param tasks the list of tasks to be saved.
+     */
+    public void saveTasks(List<Task> tasks) {
+        taskRepository.saveAll(tasks);
+    }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/task")
 public class TaskController {
@@ -61,6 +62,19 @@ public class TaskController {
         logger.info("Request received to delete task with ID: {}", taskId);
         taskService.deleteTask(taskId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    /**
+     * Handles the POST request to upload and save tasks from a JSON file.
+     *
+     * @param tasks the list of tasks to be saved.
+     * @return a ResponseEntity with an HTTP status code.
+     */
+    @PostMapping("/file")
+    public ResponseEntity<Void> readJson(@RequestBody List<Task> tasks) {
+        logger.info("Request received to create a new tasks from Json File: {}", tasks);
+        taskService.saveTasks(tasks);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
